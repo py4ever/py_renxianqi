@@ -96,7 +96,9 @@ class LXW_NAME_LISTING_GUI():
         attended_data = self.attended_text.get(1.0, END).strip()
         debug("all_data=%s " % all_data)
         debug("attended_data=%s " % attended_data)
-        if not attended_data or not all_data:
+        if not attended_data:
+            attended_data = ""
+        if not all_data:
             self.log_on_text("[rxq::renxianqi:ERROR] 没有输入数据!")
             return
         try:

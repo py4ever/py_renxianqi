@@ -13,7 +13,7 @@ def debug(data):
 
 def parse_names_text(raw_data):
     if not raw_data:
-        return None
+        return []
     items = raw_data.split('\n')
     trim_items = set(x.strip() if x.strip() else '' for x in items)
     # return str(trim_items)
