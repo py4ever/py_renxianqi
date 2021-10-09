@@ -10,6 +10,8 @@
 
 import tkinter.messagebox as mb
 
+from renxianqi.localdata_loader import get_data_dir
+
 
 def show_copyright():
     message = """
@@ -20,6 +22,15 @@ def show_copyright():
 欢迎关注公众号【雷学委】，加入Python开发者阵营！
     """
     mb.showinfo("[人贤齐-万能清点工具]", message)
+
+
+def show_datafiles():
+    data_dir = get_data_dir()
+    message = """
+renxianqi 名单数据存储于：%s
+    """ % (data_dir)
+    mb.showinfo("[人贤齐-万能清点工具]", message)
+
 
 def show_about():
     message = """

@@ -20,6 +20,13 @@ Installation / 安装
     pip install renxianqi
 
 
+国内指定镜像安装：
+
+::
+
+    pip install renxianqi -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+
 More Info 
 --------------------------
 

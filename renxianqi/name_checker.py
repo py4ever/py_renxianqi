@@ -17,7 +17,7 @@ from pypinyin import pinyin, Style
 
 from renxianqi import pinyin_sort
 from renxianqi.localdata_loader import load_all_member, load_attended, save_inputs
-from renxianqi.menu_setting import show_copyright
+from renxianqi.menu_setting import show_copyright, show_about, show_datafiles
 from renxianqi.name_parser import parse_names_text
 
 TITLE = '[人贤齐]万能清点工具'
@@ -79,7 +79,6 @@ class LXW_NAME_LISTING_GUI():
         self.preload()
 
     def preload(self):
-        all_members = load_all_member()
         opt = 2
         self.all_member_text.delete(1.0, END)
         self.all_member_text.insert(1.0, load_all_member(opt))
@@ -98,7 +97,7 @@ class LXW_NAME_LISTING_GUI():
         debug("all_data=%s " % all_data)
         debug("attended_data=%s " % attended_data)
         if not attended_data or not all_data:
-            self.log_on_text("[LEI_XUE_WEI:ERROR] 没有输入数据!")
+            self.log_on_text("[rxq::renxianqi:ERROR] 没有输入数据!")
             return
         try:
             all_names = parse_names_text(all_data)
@@ -112,7 +111,7 @@ class LXW_NAME_LISTING_GUI():
             self.log_text.insert(1.0, diff_msg)
             print("结果复制到剪贴板！")
             pyperclip.copy(diff_result)
-            self.log_on_text("[LEI_XUE_WEI:INFO] 缺席个体已复制到剪贴板，处理成功！")
+            self.log_on_text("[rxq::renxianqi:INFO] 缺席个体已复制到剪贴板，处理成功！")
             save_inputs(all_data, attended_data)
         except Exception as e:
             debug(e)
@@ -135,8 +134,9 @@ def app_start():
     about_menu = Menu(menubar)
     setting_menu = Menu(menubar)
     about_menu.add_command(label='版权信息', command=show_copyright)
-    about_menu.add_command(label='其他说明', command=show_copyright)
-    menubar.add_cascade(label="关于", menu=about_menu)
+    about_menu.add_command(label='操作说明', command=show_about)
+    setting_menu.add_command(label='数据文件信息', command=show_datafiles)
+    menubar.add_cascade(label="使用介绍", menu=about_menu)
     menubar.add_cascade(label="更多配置", menu=setting_menu)
     root.config(menu=menubar)
     leixuewei_ui = LXW_NAME_LISTING_GUI(root)
