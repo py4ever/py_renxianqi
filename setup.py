@@ -11,6 +11,9 @@ with open(README_RST, 'r') as rfile:
     LONG_DESCRIPTION = rfile.read()
 
 
+# well, the conditional requirement cannot be achieved by below method
+# as when we run the python setup.py   bdist_wheel --universal, the metadata file has been generated
+# and it made the install_reqs frozen.
 def resolve_libs():
     os_name = platform.system()
     if os_name == "Windows" or "Win" in os_name:
