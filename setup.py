@@ -16,6 +16,7 @@ def resolve_libs():
     if os_name == "Windows" or "Win" in os_name:
         return ["pypinyin","pyperclip","winshell","pypiwin32"]
     else:
+        # pypiwin32 are not available for other non-win os
         return ["pypinyin", "pyperclip","winshell"]
 
 setup(name=NAME,  # 包名

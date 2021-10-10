@@ -1,4 +1,5 @@
 pypinyin
 pyperclip
 winshell
-pypiwin32
+#pypiwin32 only support on Windows
+#pypiwin32

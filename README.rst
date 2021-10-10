@@ -4,7 +4,7 @@ renxianqi
 
 A small tool to check the any absentee.
 
-By comparing the left text pane with right text pane and it sort out the missing part.
+By comparing the left text panel with right text panel and it sort out the missing part.
 
 人贤齐(renxianqi aka qingdian)，一个小工具用来查询出席活动的人数是否到齐了。
 
@@ -40,6 +40,14 @@ Installation / 安装
 
 More Info 
 --------------------------
+
+人贤齐/万能清点工具，适用于一下场景：
+
+- 清单类内容比较
+- 课时出勤点名
+- 活动出席情况核对
+
+等等场景
 
 Author `levin`_
 
