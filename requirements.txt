@@ -1,3 +1,4 @@
 pypinyin
 pyperclip
 winshell
+pypiwin32

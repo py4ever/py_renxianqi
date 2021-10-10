@@ -24,8 +24,9 @@ def create_shortcut(bin_path: str, name: str, desc: str):
         return True
     except ImportError as err:
         print("Well, do nothing as 'winshell' lib may not available on current os")
+        print("error detail %s" % str(err))
     return False
 
 
 if __name__ == "__main__":
-    create_shortcut("/Library/Frameworks/Python.framework/Versions/3.8/bin/rxq", "RenXianQi", "清点小程序")
+    create_shortcut("/Library/Frameworks/Python.framework/Versions/3.8/bin/rxq.exe", "RenXianQi", "清点小程序")

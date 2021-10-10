@@ -26,8 +26,9 @@ def show_copyright():
 
 
 def make_shortcut():
-    libpath = sys.argv[0]
-    binpath = os.path.join(libpath, "renxianqi.exe")
+    binpath = sys.argv[0]
+    if not binpath.endswith(".exe"):
+        binpath = os.path.join(binpath, ".exe")
     title = "RenXianQi万能清点"
     status = create_shortcut(binpath, title, "一个工具万能左右对比清点")
     if status:

@@ -1,4 +1,6 @@
 import os
+import platform
+
 from distutils.core import setup
 from setuptools import find_packages
 
@@ -9,6 +11,13 @@ with open(README_RST, 'r') as rfile:
     LONG_DESCRIPTION = rfile.read()
 
 
+def resolve_libs():
+    os_name = platform.system()
+    if os_name == "Windows" or "Win" in os_name:
+        return ["pypinyin","pyperclip","winshell","pypiwin32"]
+    else:
+        return ["pypinyin", "pyperclip","winshell"]
+
 setup(name=NAME,  # 包名
       version=VERSION,  # 版本号
       description='A small tool to check the absentee',
@@ -16,7 +25,7 @@ setup(name=NAME,  # 包名
       author='levin',
       author_email='991219092@qq.com',
       url='https://blog.csdn.net/geeklevin',
-      install_requires=["pypinyin","pyperclip"],
+      install_requires=resolve_libs(),
       license='Apache License 2.0',
       packages=find_packages(),
       platforms=["all"],
@@ -24,6 +33,7 @@ setup(name=NAME,  # 包名
           'console_scripts': [
               'rxq = renxianqi.main:main',
               'renxianqi = renxianqi.main:main',
+              'qingdian = renxianqi.main:main',
           ]
       },
       classifiers=[
