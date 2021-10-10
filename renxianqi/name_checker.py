@@ -17,7 +17,7 @@ from pypinyin import pinyin, Style
 
 from renxianqi import pinyin_sort
 from renxianqi.localdata_loader import load_all_member, load_attended, save_inputs
-from renxianqi.menu_setting import show_copyright, show_about, show_datafiles
+from renxianqi.menu_setting import show_copyright, show_about, show_datafiles, make_shortcut
 from renxianqi.name_parser import parse_names_text
 
 TITLE = '[人贤齐]万能清点工具'
@@ -137,6 +137,7 @@ def app_start():
     setting_menu = Menu(menubar)
     about_menu.add_command(label='版权信息', command=show_copyright)
     about_menu.add_command(label='操作说明', command=show_about)
+    setting_menu.add_command(label='创建桌面快捷方式', command=make_shortcut)
     setting_menu.add_command(label='数据文件信息', command=show_datafiles)
     menubar.add_cascade(label="使用介绍", menu=about_menu)
     menubar.add_cascade(label="更多配置", menu=setting_menu)

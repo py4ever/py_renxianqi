@@ -6,11 +6,12 @@
 # @XueWeiTag: CodingDemo
 # @File : menu_setting.py.py
 # @Project : absentee
-
-
+import os
+import sys
 import tkinter.messagebox as mb
 
 from renxianqi.localdata_loader import get_data_dir
+from renxianqi.shortcut import create_shortcut
 
 
 def show_copyright():
@@ -22,6 +23,17 @@ def show_copyright():
 欢迎关注公众号【雷学委】，加入Python开发者阵营！
     """
     mb.showinfo("[人贤齐-万能清点工具]", message)
+
+
+def make_shortcut():
+    libpath = sys.argv[0]
+    binpath = os.path.join(libpath, "renxianqi.exe")
+    title = "RenXianQi万能清点"
+    status = create_shortcut(binpath, title, "一个工具万能左右对比清点")
+    if status:
+        mb.showinfo("[人贤齐-万能清点工具]", "【" + title + "】快捷方式创建成功！")
+    else:
+        mb.showerror("[人贤齐-万能清点工具]", "抱歉，当前系统不支持创建快捷方式。")
 
 
 def show_datafiles():
