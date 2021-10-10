@@ -1,12 +1,23 @@
 import os
+import platform
+
 from distutils.core import setup
 from setuptools import find_packages
 
-from renxianqi.setting import NAME,VERSION
+from renxianqi.setting import NAME, VERSION
 
 README_RST = os.path.join(os.getcwd(), "README.rst")
 with open(README_RST, 'r') as rfile:
     LONG_DESCRIPTION = rfile.read()
+
+
+def resolve_libs():
+    os_name = platform.system()
+    if os_name == "Windows" or "Win" in os_name:
+        return ["pypinyin", "pyperclip", "winshell", "pypiwin32"]
+    else:
+        # pypiwin32 are not available for other non-win os
+        return ["pypinyin", "pyperclip", "winshell"]
 
 
 setup(name="qingdian",  # 包名
@@ -16,7 +27,7 @@ setup(name="qingdian",  # 包名
       author='levin',
       author_email='991219092@qq.com',
       url='https://blog.csdn.net/geeklevin',
-      install_requires=["pypinyin","pyperclip"],
+      install_requires=resolve_libs(),
       license='Apache License 2.0',
       packages=find_packages(),
       platforms=["all"],
