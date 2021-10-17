@@ -4,12 +4,12 @@
 # @Author : LeiXueWei
 # @CSDN/Juejin/Wechat: 雷学委
 # @XueWeiTag: CodingDemo
-# @File : setting.py.py
-# @Project : renxianqi
+# @File : setting.py
+# @Project : renxianqi(aka qingdian)
 import os
 
 # Name should didn't be changed as it need to align with pypi
 NAME = "renxianqi"
 # Change the version everytime when a upload to pypi to issue a new version
-VERSION = "1.0.9"
+VERSION = "1.0.11"
 

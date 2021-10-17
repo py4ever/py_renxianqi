@@ -17,6 +17,7 @@ with open(README_RST, 'r') as rfile:
 def resolve_libs():
     os_name = platform.system()
     if os_name == "Windows" or "Win" in os_name:
+        #"pypiwin32" is required by only invoked when create shortcut
         return ["pypinyin", "pyperclip", "winshell", "pypiwin32"]
     else:
         # pypiwin32 are not available for other non-win os
@@ -30,7 +31,7 @@ setup(name=NAME,  # 包名
       author='levin',
       author_email='991219092@qq.com',
       url='https://blog.csdn.net/geeklevin',
-      install_requires=["pypinyin", "pyperclip", "winshell", "pypiwin32"],
+      install_requires=["pypinyin", "pyperclip", "winshell"],
       license='Apache License 2.0',
       packages=find_packages(),
       platforms=["all"],

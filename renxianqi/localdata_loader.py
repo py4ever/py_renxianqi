@@ -5,10 +5,10 @@
 # @CSDN/Juejin/Wechat: 雷学委
 # @XueWeiTag: CodingDemo
 # @File : localdata_loader.py
-# @Project : hello
+# @Project : renxianqi(aka qingdian)
 
 import os
-
+import renxianqi.setting as setting
 import renxianqi.pinyin_sort as ps
 
 HOME = os.path.expanduser('~')
@@ -28,8 +28,15 @@ def get_data_dir():
 def generate_info():
     infofile = os.path.join(get_data_dir(), "info.readme")
     with open(infofile, 'w') as f:
-        lines = ["# renxianqi", "# more contact info wechat[雷学委]"]
-        f.writelines(lines)
+        lines = ["# renxianqi",
+                 "# aka qingdian ",
+                 "# 工具链接：https://pypi.org/project/renxianqi/",
+                 "# more contact info wechat[雷学委]"]
+        f.write('\n'.join(lines))
+    infofile = os.path.join(get_data_dir(), "version")
+    with open(infofile, 'w') as f:
+        lines = [setting.VERSION]
+        f.write('\n'.join(lines))
 
 
 def generate_all_member(text=""):
