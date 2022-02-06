@@ -10,7 +10,8 @@ Welcome to renxianqi's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-
+   howto
+   about
 
 Indices and tables
 ==================
