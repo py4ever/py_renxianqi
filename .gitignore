@@ -134,3 +134,5 @@ dmypy.json
 .idea
 /tests/ignored/
 /.temp-gen-ignored/
+/.git_gitee/
+/.git_github/
